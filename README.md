@@ -5,3 +5,12 @@ Loads data from the [HackerNews API](https://github.com/HackerNews/API)
 Scaffholded with [create-react-app](https://github.com/facebook/create-react-app) - live edit and fork the code on [CodeSandbox](https://codesandbox.io/s/github/Bamblehorse/React-Hacker-News)
 
 :octocat: This Project is live on [GitHub pages](https://bamblehorse.github.io/React-Hacker-News/build/)
+
+## Todo
+
+* [ ] Finish adding flow type checking
+* [ ] Testing with Jest
+* [ ] Add react router
+* [ ] Add lazy loading of HN data
+* [ ] add Style
+* [ ] Split web worker up
