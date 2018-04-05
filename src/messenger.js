@@ -1,5 +1,5 @@
 /* globals window Worker localStorage */
-
+// @flow
 import { addStories } from './actions';
 
 const storyTypes = ['ask', 'show', 'job', 'new', 'best', 'top'];
@@ -65,5 +65,6 @@ export default {
       } else missingStories.push(type);
     });
     if (storiesAreMissing()) startPhil(dispatch);
+    return {}; // mapDispatchToProps() in Connect(App) must return a plain object.
   },
 };

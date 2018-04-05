@@ -1,28 +1,21 @@
+// @flow
 import React from 'react';
-import { connect } from 'react-redux';
-import Messenger from './../messenger';
 
 import Stories from './Stories';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+type Props = {
+  stories: Object,
+};
+
+class App extends React.Component<Props> {
   render() {
     const { stories } = this.props;
     const storiesKeys = Object.keys(stories);
-    const storiesArray = storiesKeys.map(key => <Stories stories={this.props.stories[key]} />);
+    const storiesArray = storiesKeys.map(key => (
+      <Stories stories={this.props.stories[key]} key={key} />
+    ));
     return storiesArray;
   }
 }
 
-function mapStateToProps(state) {
-  return { stories: state.stories };
-}
-
-function mapDispatchToProps(dispatch) {
-  Messenger.injectDispatch(dispatch);
-}
-
-const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
-export default AppContainer;
+export default App;
