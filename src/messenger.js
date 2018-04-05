@@ -1,6 +1,13 @@
 /* globals window Worker localStorage */
 // @flow
+/* eslint-disable no-console */
 import { addStories } from './actions';
+
+type workerMessage = {
+  data: any,
+  type: string,
+  storyType?: string,
+};
 
 const storyTypes = ['ask', 'show', 'job', 'new', 'best', 'top'];
 let missingStories = [];
@@ -22,9 +29,10 @@ function startPhil(dispatch) {
   let phil;
   if (window.Worker) {
     if (!window.phil) window.phil = new Worker('hacker-news-worker.js');
-    phil = window.phil;
+    phil = window.phil; // eslint-disable-line prefer-destructuring
     phil.postMessage({ type: 'message', data: 'Wake up Phil' });
-    phil.onmessage = function onMessage(e) {
+    phil.onmessage = function onMessage(e: MessageEvent) {
+      console.log(e);
       const message = e.data;
       const { data } = message;
       console.log('Message received from Phil:', message);
@@ -54,7 +62,7 @@ function startPhil(dispatch) {
     };
   }
 }
-
+export { storyTypes };
 export default {
   injectDispatch(dispatch) {
     storyTypes.forEach((storyType) => {

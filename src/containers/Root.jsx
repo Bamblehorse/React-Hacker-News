@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect, Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 
 import App from '../components/App';
 import Messenger from './../messenger';
