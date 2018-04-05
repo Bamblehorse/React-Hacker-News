@@ -10,7 +10,7 @@ Scaffholded with [create-react-app](https://github.com/facebook/create-react-app
 
 * [ ] Finish adding flow type checking
 * [ ] Testing with Jest
-* [ ] Add react router
+* [x] Add react router
 * [ ] Add lazy loading of HN data
 * [ ] add Style
 * [ ] Split web worker up
