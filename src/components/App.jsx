@@ -29,7 +29,7 @@ const App = ({ stories }: Props) => {
     </React.Fragment>
   );
   return (
-    <Router>
+    <Router basename="/React-Hacker-News/build/">
       <Main />
     </Router>
   );
