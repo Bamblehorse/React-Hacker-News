@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 
 import Stories from './Stories';
 import { storyTypes } from './../messenger';
@@ -15,7 +15,7 @@ const App = ({ stories }: Props) => {
     const StoriesPage = () => <Stories stories={stories[k]} storyTitle={`${k} - hacker news`} />;
     return <Route path={`/${k}`} component={StoriesPage} key={k} />;
   };
-  const storiesArray = storyTypes.map(makeStories);
+  const Routes = storyTypes.map(makeStories);
   const makeLink = path => (
     <Link to={`/${path}`} key={path}>
       {path}
@@ -25,11 +25,11 @@ const App = ({ stories }: Props) => {
   const Main = () => (
     <React.Fragment>
       <nav>{NavLinks}</nav>
-      <Switch>{storiesArray}</Switch>
+      <Switch>{Routes}</Switch>
     </React.Fragment>
   );
   return (
-    <Router basename="/React-Hacker-News/build/">
+    <Router>
       <Main />
     </Router>
   );
