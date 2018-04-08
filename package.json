@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "homepage": "https://bamblehorse.github.io/React-Hacker-News/build",
+  "homepage": "https://bamblehorse.github.io/React-Hacker-News",
   "main": "src/index.js",
   "dependencies": {
     "eslint-config-airbnb": "^16.1.0",
+    "gh-pages": "^1.1.0",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-redux": "^5.0.7",
@@ -18,6 +19,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "yarn run build",
+    "deploy": "-b master -d build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

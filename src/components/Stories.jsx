@@ -35,7 +35,6 @@ const Stories = ({ stories, storyTitle }: Props) => {
     });
     return (
       <React.Fragment>
-        <h1>{storyTitle}</h1>
         <hr />
         {storyArray}
       </React.Fragment>

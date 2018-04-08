@@ -10,14 +10,18 @@ type Props = {
 };
 
 const App = ({ stories }: Props) => {
-  const makeStories = (key) => {
-    const k = key;
-    const StoriesPage = () => <Stories stories={stories[k]} storyTitle={`${k} - hacker news`} />;
-    return <Route path={`/${k}`} component={StoriesPage} key={k} />;
+  const makeRoute = (path, component) => (
+    <Route exact path={`/${path}`} component={component} key={path} />
+  );
+  const makeStories = (path) => {
+    const StoriesPage = () => (
+      <Stories stories={stories[path]} storyTitle={`${path} - hacker news`} />
+    );
+    return makeRoute(path, StoriesPage);
   };
   const Routes = storyTypes.map(makeStories);
   const makeLink = path => (
-    <Link to={`/${path}`} key={path}>
+    <Link to={`/${path}`} key={path} replace>
       {path}
     </Link>
   );
